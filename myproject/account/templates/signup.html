@@ -1,0 +1,26 @@
+{% block content %}
+    <div>
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {% if error %}
+                <p>{{error}}</p>
+                <br>
+            {% endif %}
+            <div>
+                <h3>Name</h3>
+                <input name="name" type="text">
+                <br>
+                <h3>ID</h3>
+                <input name="id" type="text">
+                <br>
+                <h3>Password</h3>
+                <input name="password" type="password">
+                <br>
+                <h3>E-Mail</h3>
+                <input name="email" type="email">
+            </div>
+            <br>
+            <input type="submit" value="제출하기">
+        </form>
+    </div>
+{% endblock %}
