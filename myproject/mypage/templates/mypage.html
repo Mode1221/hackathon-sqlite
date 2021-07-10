@@ -16,29 +16,3 @@
               </div>
             </div>
         </nav> 
-        <form method="POST" action="{% url 'signup' %}">
-            {% csrf_token %}
-            {% if error %}
-                <p>{{error}}</p>
-                <br>
-            {% endif %}
-            <div>
-                <br>
-                <h4>LOGIN</h4>
-                <br>
-                <h3>ID</h3>
-                <input name="id" type="text">
-                <br>
-                <h3>Password</h3>
-                <input name="password" type="password">
-                <br>
-            </div>
-            <li class="login_signup">
-                <a class="nav-link" aria-current="page" href="{% url 'signup' %}">회원가입</a>
-            </li>
-            <input type="submit" value="제출하기">
-            <a href="signup.html"></a>
-        </form>
-    </div>
-</body>
-{% endblock %}
