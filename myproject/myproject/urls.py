@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import account.views
+import news.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +24,5 @@ urlpatterns = [
     path('login/', account.views.login, name = "login"),
     path('', account.views.main, name = "main"),
     path('mypage/', account.views.mypage, name = "mypage"),
-    
+    path('news/', news.views.search, name="news_search"),
 ]

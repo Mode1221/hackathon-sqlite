@@ -1,0 +1,58 @@
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main' %}">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">나의 뉴스피드</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">스크랩</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mypage' %}">마이페이지</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'main' %}">로그아웃</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1>My News</h1>
+    <h3>마케팅 관리</h3>
+    <h5> TUE 10:30-13:00</h5>
+    <form action="{% url 'news_search' %}" method="GET">
+    </form>
+    <div>
+
+    {% for item in items %}
+        <ul>
+            <div>{{forloop.counter}}
+                <br>
+                제목: {{item.title|safe}} ({{item.pubDate|safe}})
+                <br>
+                원문 기사 링크: {{item.link}}
+                <br>
+                <br>
+                <!-- <img src="{{item.originallink}}" alt="" width="100" height="100"> -->            
+                기사 요약: {{item.description|safe}}
+                <br>
+                <br>
+                <br>
+            </div>
+        </ul>
+    {% endfor %}
+    </div>
+
+{% endblock %}
